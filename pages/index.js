@@ -1,8 +1,7 @@
-import Head from 'next/head'
 import { Toolbar } from '../components/toolbar'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
   return (
     <div className='page-container'>
       <Toolbar />
@@ -15,3 +14,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
