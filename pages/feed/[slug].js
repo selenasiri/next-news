@@ -22,10 +22,10 @@ const Feed = ({ pageNumber, articles }) => {
           <div 
             onClick={() => {
               if (pageNumber > 1) {
-                router.push(`/feed/${pageNumber - 1}`).then(() => window.scrollTo(0,0));
+                router.push(`/feed/${pageNumber + 1}`).then(() => window.scrollTo(0,0));
               }
             }}
-            className={pageNumber === 1 ? styles.disabled : styles.active}>
+            className={pageNumber === 5 ? styles.disabled : styles.active}>
               Previous Page
           </div>
 
@@ -36,7 +36,6 @@ const Feed = ({ pageNumber, articles }) => {
 }
 
 export const getServerSideProps = async pageContext => {
-  //console.log(pageContext)
   const pageNumber = pageContext.query.slug;
 
   if (!pageNumber || pageNumber < 1 || pageNumber > 5) {
@@ -56,8 +55,6 @@ export const getServerSideProps = async pageContext => {
       },
     },
   )
-
-  //console.log(data)
 
   return {
     props: {
